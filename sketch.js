@@ -1,44 +1,41 @@
-var canvas, backgroundImage;
-
-var gameState = 0;
-var playerCount;
-var allPlayers;
-var distance = 0;
 var database;
+var form;
+var user;
+var peopleCount = 0;
+var work;
+var workImg;
+var curbImg;
+var curb;
+var covid;
 
-var form, player, game;
-
-var cars, car1, car2, car3, car4;
-
-var track, car1_img, car2_img, car3_img, car4_img;
-
-function preload(){
-  track = loadImage("images/track.jpg");
-  car1_img = loadImage("images/car1.png");
-  car2_img = loadImage("images/car2.png");
-  car3_img = loadImage("images/car3.png");
-  car4_img = loadImage("images/car4.png");
-  ground = loadImage("images/ground.png");
+function preload() {
+     workImg = loadImage("images/th (13).jpg");
+     curbImg = loadImage("images/12.jpeg");
+     covidImg = loadImage("images/123.jpg");
 }
 
 function setup(){
-  canvas = createCanvas(displayWidth - 20, displayHeight-30);
-  database = firebase.database();
-  game = new Game();
-  game.getState();
-  game.start();
+    createCanvas(1500,1200);
+  //  var database = firebase.database();
+    form = new Form;
+    form.display();
+    User = new UserData;
+    //User.getCount();
+
+    work = createSprite(1200,150,100,100);
+    work.addImage(workImg);
+    work.scale = 0.7;
+
+    curb = createSprite(250,150,1400,1200);
+    curb.addImage(curbImg);
+    work.scale = 0.7;
+
+    covid = createSprite(1000,600,1500,1200);
+    covid.addImage(covidImg);
+    covid.scale = 0.7;
 }
 
-
 function draw(){
-  if(playerCount === 4){
-    game.update(1);
-  }
-  if(gameState === 1){
-    clear();
-    game.play();
-  }
-  if(gameState === 2){
-    game.end();
-  }
+    background("white");
+    drawSprites();
 }
