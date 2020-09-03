@@ -9,7 +9,7 @@ var curb;
 var covid;
 
 function preload() {
-     workImg = loadImage("images/th (13).jpg");
+     workImg = loadImage("images/432.jpg");
      curbImg = loadImage("images/12.jpeg");
      covidImg = loadImage("images/123.jpg");
 }
